@@ -1,0 +1,48 @@
+# ===== LOKALNI FAJLOVI (ne idu na Git) =====
+CLAUDE.md
+projektna-dokumentacija.txt
+
+# ===== MAVEN =====
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+*.jar
+*.war
+*.ear
+
+# ===== INTELLIJ IDEA =====
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ===== ECLIPSE =====
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# ===== VS CODE =====
+.vscode/
+
+# ===== OS FAJLOVI =====
+.DS_Store
+Thumbs.db
+
+# ===== ENVIRONMENT / SECRETS =====
+.env
+.env.local
+*.env
+application-local.yml
+application-secret.yml
+
+# ===== LOGS =====
+*.log
+logs/
+
+# ===== DOCKER =====
+.docker/
