@@ -15,6 +15,7 @@ COPY review-service/src review-service/src
 RUN mvn clean package -pl review-service -am -DskipTests -q
 
 FROM eclipse-temurin:21-jre-alpine
+RUN apk add --no-cache curl
 WORKDIR /app
 
 COPY --from=builder /app/review-service/target/*.jar app.jar

@@ -15,6 +15,7 @@ COPY order-service/src order-service/src
 RUN mvn clean package -pl order-service -am -DskipTests -q
 
 FROM eclipse-temurin:21-jre-alpine
+RUN apk add --no-cache curl
 WORKDIR /app
 
 COPY --from=builder /app/order-service/target/*.jar app.jar
