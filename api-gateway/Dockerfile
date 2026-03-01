@@ -15,6 +15,7 @@ COPY api-gateway/src api-gateway/src
 RUN mvn clean package -pl api-gateway -am -DskipTests -q
 
 FROM eclipse-temurin:21-jre-alpine
+RUN apk add --no-cache curl
 WORKDIR /app
 
 COPY --from=builder /app/api-gateway/target/*.jar app.jar

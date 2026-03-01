@@ -15,6 +15,7 @@ COPY user-service/src user-service/src
 RUN mvn clean package -pl user-service -am -DskipTests -q
 
 FROM eclipse-temurin:21-jre-alpine
+RUN apk add --no-cache curl
 WORKDIR /app
 
 COPY --from=builder /app/user-service/target/*.jar app.jar

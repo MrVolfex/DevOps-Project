@@ -11,46 +11,21 @@ spring:
           uri: ${USER_SERVICE_URL:http://localhost:8081}
           predicates:
             - Path=/api/users/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: userServiceCB
-                fallbackUri: forward:/fallback/users
 
         - id: book-service
           uri: ${BOOK_SERVICE_URL:http://localhost:8082}
           predicates:
             - Path=/api/books/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: bookServiceCB
-                fallbackUri: forward:/fallback/books
 
         - id: order-service
           uri: ${ORDER_SERVICE_URL:http://localhost:8083}
           predicates:
             - Path=/api/orders/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: orderServiceCB
-                fallbackUri: forward:/fallback/orders
 
         - id: review-service
           uri: ${REVIEW_SERVICE_URL:http://localhost:8084}
           predicates:
             - Path=/api/reviews/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: reviewServiceCB
-                fallbackUri: forward:/fallback/reviews
-
-        - id: notification-service
-          uri: ${NOTIFICATION_SERVICE_URL:http://localhost:8085}
-          predicates:
-            - Path=/api/notifications/**
 
       globalcors:
         corsConfigurations:

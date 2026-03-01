@@ -35,3 +35,14 @@ jobs:
           name: surefire-reports
           path: '**/target/surefire-reports/*.xml'
           retention-days: 7
+
+      - name: Build and start containers
+        run: docker compose up --wait --build
+        timeout-minutes: 15
+
+      - name: Show container status
+        run: docker compose ps
+
+      - name: Stop containers
+        if: always()
+        run: docker compose down

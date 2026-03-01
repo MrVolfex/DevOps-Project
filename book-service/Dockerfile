@@ -15,6 +15,7 @@ COPY book-service/src book-service/src
 RUN mvn clean package -pl book-service -am -DskipTests -q
 
 FROM eclipse-temurin:21-jre-alpine
+RUN apk add --no-cache curl
 WORKDIR /app
 
 COPY --from=builder /app/book-service/target/*.jar app.jar
