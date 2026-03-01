@@ -37,10 +37,8 @@ jobs:
           retention-days: 7
 
       - name: Build and start containers
-        run: docker compose up -d --build
-
-      - name: Wait for services
-        run: sleep 30
+        run: docker compose up --wait --build
+        timeout-minutes: 15
 
       - name: Show container status
         run: docker compose ps
